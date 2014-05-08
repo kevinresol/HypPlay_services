@@ -1,6 +1,7 @@
 package fr.hyperfiction.playservices;
 
 import android.util.Log;
+import com.google.android.gms.games.Games;
 import fr.hyperfiction.playservices.PlayHelper;
 
 import fr.hyperfiction.googleplayservices.HypPlayServices;
@@ -36,9 +37,11 @@ class Leaderboards{
 		*/
 		static public void openAll(  ){
 			HypPlayServices.mainActivity.startActivityForResult(
-														PlayHelper.getInstance( ).getGamesClient( ).getAllLeaderboardsIntent( ),
-														ID_LEADERBOARD_INTENT
-													);
+				Games.Leaderboards.getAllLeaderboardsIntent(
+					PlayHelper.getInstance( ).getApiClient()
+				),			
+				ID_LEADERBOARD_INTENT
+			);
 		}
 
 		/**
@@ -49,9 +52,12 @@ class Leaderboards{
 		*/
 		static public void openBy_id( String sId ){
 			HypPlayServices.mainActivity.startActivityForResult(
-														PlayHelper.getInstance( ).getGamesClient( ).getLeaderboardIntent( sId ),
-														ID_LEADERBOARD_INTENT
-													);
+				Games.Leaderboards.getLeaderboardIntent(
+					PlayHelper.getInstance( ).getApiClient(),
+					sId
+				),			
+				ID_LEADERBOARD_INTENT
+			);
 		}
 
 		/**
@@ -61,7 +67,7 @@ class Leaderboards{
 		* @return	void
 		*/
 		static public void loadMeta_datas( String sId ){
-			PlayHelper.getInstance( ).getGamesClient( ).loadLeaderboardMetadata( PlayHelper.getInstance( ) , sId );
+			//PlayHelper.getInstance( ).getApiClient( ).loadLeaderboardMetadata( PlayHelper.getInstance( ) , sId );
 		}
 
 		/**
@@ -71,10 +77,10 @@ class Leaderboards{
 		* @return	void
 		*/
 		static public void submitScore( String sId , int iScore , boolean bSync ){
-			if( !bSync )
-				PlayHelper.getInstance( ).getGamesClient( ).submitScore( sId , (long)iScore );
+			if (!bSync )
+				Games.Leaderboards.submitScore(PlayHelper.getInstance( ).getApiClient( ), sId, (long)iScore);
 			else
-				PlayHelper.getInstance( ).getGamesClient( ).submitScoreImmediate( PlayHelper.getInstance( ) , sId , (long)iScore );
+				Games.Leaderboards.submitScoreImmediate(PlayHelper.getInstance( ).getApiClient( ), sId, (long)iScore);
 		}
 
 	// -------o protected

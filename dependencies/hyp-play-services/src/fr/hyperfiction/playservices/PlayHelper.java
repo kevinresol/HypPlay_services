@@ -4,17 +4,17 @@ import android.content.Intent;
 import android.opengl.GLSurfaceView;
 import android.util.Log;
 
-import com.google.android.gms.games.achievement.OnAchievementUpdatedListener;
+//import com.google.android.gms.games.achievement.OnAchievementUpdatedListener;
 import com.google.android.gms.games.leaderboard.Leaderboard;
-import com.google.android.gms.games.leaderboard.LeaderboardBuffer;
-import com.google.android.gms.games.leaderboard.OnLeaderboardMetadataLoadedListener;
-import com.google.android.gms.games.leaderboard.OnScoreSubmittedListener;
-import com.google.android.gms.games.leaderboard.SubmitScoreResult;
+//import com.google.android.gms.games.leaderboard.LeaderboardBuffer;
+//import com.google.android.gms.games.leaderboard.OnLeaderboardMetadataLoadedListener;
+//import com.google.android.gms.games.leaderboard.OnScoreSubmittedListener;
+import com.google.android.gms.games.leaderboard.Leaderboards.SubmitScoreResult;
 
 import com.google.example.games.basegameutils.GameHelper;
 
 import fr.hyperfiction.playservices.PlayServices;
-import fr.hyperfiction.playservices.Multiplayers;
+//import fr.hyperfiction.playservices.Multiplayers;
 import fr.hyperfiction.googleplayservices.HypPlayServices;
 
 import org.json.JSONObject;
@@ -24,9 +24,9 @@ import org.json.JSONObject;
  * @author shoe[box]
  */
 
-public class PlayHelper extends GameHelper implements 	OnAchievementUpdatedListener ,
+public class PlayHelper extends GameHelper /*implements 	OnAchievementUpdatedListener ,
 											OnLeaderboardMetadataLoadedListener ,
-											OnScoreSubmittedListener{
+											OnScoreSubmittedListener*/{
 
 	// -------o constructor
 
@@ -37,7 +37,7 @@ public class PlayHelper extends GameHelper implements 	OnAchievementUpdatedListe
 		* @return	void
 		*/
 		private PlayHelper() {
-			super( HypPlayServices.mainActivity );
+			super( HypPlayServices.mainActivity , CLIENT_GAMES);
 			trace("constructor ::: "+HypPlayServices.mainActivity);
 		}
 
@@ -63,7 +63,7 @@ public class PlayHelper extends GameHelper implements 	OnAchievementUpdatedListe
 		* onActivityResult callback. If the activity result pertains to the sign-in
 		* process, processes it appropriately.
 		*/
-		@Override
+		/*@Override
 		public void onActivityResult(int requestCode, int responseCode, Intent intent) {
 			super.onActivityResult( requestCode , responseCode , intent );
 			trace("onActivityResult ::: "+requestCode+" - "+responseCode+" - "+intent);
@@ -84,7 +84,7 @@ public class PlayHelper extends GameHelper implements 	OnAchievementUpdatedListe
 			}
 
 
-		}
+		}*/
 
 		//Leaderboards -----------------------------------------------------------------------------------------
 
@@ -94,7 +94,7 @@ public class PlayHelper extends GameHelper implements 	OnAchievementUpdatedListe
 		* @public
 		* @return	void
 		*/
-		public void onLeaderboardMetadataLoaded(int statusCode, LeaderboardBuffer buffer){
+		/*public void onLeaderboardMetadataLoaded(int statusCode, LeaderboardBuffer buffer){
 			int l = buffer.getCount( );
 			int i = 0;
 
@@ -118,7 +118,7 @@ public class PlayHelper extends GameHelper implements 	OnAchievementUpdatedListe
 
 			sRes += "]";
 			onEvent_wrapper( PlayServices.ON_LEADERBOARD_METAS , sRes , statusCode );
-		}
+		}*/
 
 		/**
 		*

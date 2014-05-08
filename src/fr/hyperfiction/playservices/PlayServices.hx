@@ -2,7 +2,7 @@ package fr.hyperfiction.playservices;
 
 import fr.hyperfiction.playservices.events.SigninEvent;
 import fr.hyperfiction.playservices.events.AchievementsEvent;
-import fr.hyperfiction.playservices.Multiplayers;
+//import fr.hyperfiction.playservices.Multiplayers;
 import haxe.Json;
 
 import flash.Lib;
@@ -49,7 +49,7 @@ class PlayServices{
 			trace("initalize");
 
 			_setCallback( _onCallback );
-			Multiplayers.initialize( );
+			//Multiplayers.initialize( );
 
 			_initialize( );
 		}

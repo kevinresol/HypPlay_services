@@ -68,13 +68,13 @@ public class PlayServices implements GameHelper.GameHelperListener{
 		*/
 		static public void openSettings( ){
 			trace("openSettings");
-			final Intent i = HypPlayServices.playHelper.getGamesClient( ).getSettingsIntent( );
+			/*final Intent i = HypPlayServices.playHelper.getApiClient( ).getSettingsIntent( );
 			HypPlayServices.mainActivity.runOnUiThread(
 				new Runnable( ) {
 					public void run() {
 						HypPlayServices.mainActivity.startActivityForResult( i , ID_SETTINGS );
 					}
-				});
+				});*/
 		}
 
 
@@ -98,7 +98,7 @@ public class PlayServices implements GameHelper.GameHelperListener{
 		*/
 		static public void connect( ){
 			trace("connect");
-			//HypPlayServices.playHelper.getGamesClient( ).connect( );
+			//HypPlayServices.playHelper.getApiClient( ).connect( );
 
 			HypPlayServices.mainActivity.runOnUiThread(
 				new Runnable( ) {
@@ -115,7 +115,7 @@ public class PlayServices implements GameHelper.GameHelperListener{
 		* @return	void
 		*/
 		static public void clearAllNotifications( ){
-			HypPlayServices.playHelper.getGamesClient( ).clearAllNotifications( );
+			//HypPlayServices.playHelper.getApiClient( ).clearAllNotifications( );
 		}
 
 		/**
@@ -125,7 +125,7 @@ public class PlayServices implements GameHelper.GameHelperListener{
 		* @return	void
 		*/
 		static public void clearNotifications( int type ){
-			HypPlayServices.playHelper.getGamesClient( ).clearNotifications( type );
+			//HypPlayServices.playHelper.getApiClient( ).clearNotifications( type );
 		}
 
 		/**
@@ -135,7 +135,8 @@ public class PlayServices implements GameHelper.GameHelperListener{
 		* @return	void
 		*/
 		static public String getCurrent_account_name( ) {
-			return HypPlayServices.playHelper.getGamesClient( ).getCurrentAccountName( );
+			//return HypPlayServices.playHelper.getApiClient( ).getCurrentAccountName( );
+			return "";
 		}
 
 		/**
@@ -145,7 +146,8 @@ public class PlayServices implements GameHelper.GameHelperListener{
 		* @return	void
 		*/
 		static public String getDisplay_name( ){
-			return HypPlayServices.playHelper.getGamesClient( ).getCurrentPlayer( ).getDisplayName( );
+			//return HypPlayServices.playHelper.getApiClient( ).getCurrentPlayer( ).getDisplayName( );
+			return "";
 		}
 
 		/**
@@ -155,7 +157,8 @@ public class PlayServices implements GameHelper.GameHelperListener{
 		* @return	void
 		*/
 		static public String getUser_id( ){
-			return HypPlayServices.playHelper.getGamesClient( ).getCurrentPlayerId( );
+			//return HypPlayServices.playHelper.getApiClient( ).getCurrentPlayerId( );
+			return "";
 		}
 
 		/**
@@ -165,7 +168,8 @@ public class PlayServices implements GameHelper.GameHelperListener{
 		* @return	void
 		*/
 		static public String getSHA1CertFingerprint( ){
-			return HypPlayServices.playHelper.getSHA1CertFingerprint( );
+			//return HypPlayServices.playHelper.getSHA1CertFingerprint( );
+			return "";
 		}
 
 		/**
@@ -318,7 +322,7 @@ public class PlayServices implements GameHelper.GameHelperListener{
 
 			_bInit = true;
 			trace("activity ::: "+HypPlayServices.mainActivity);
-			HypPlayServices.playHelper.setup( this , GameHelper.CLIENT_GAMES | GameHelper.CLIENT_PLUS );
+			HypPlayServices.playHelper.setup( this );
 
 		}
 
